@@ -16,6 +16,20 @@ class Users extends Component {
       showUsers: true,
     };
   }
+
+  componentDidUpdate() {
+    // try{
+    //   someCodeWhichMightFail()
+    // }catch(err){
+    //   //handle error
+    // }
+    // we are throwing an error out here and handling it with the use of error binding
+    if(this.props.users.length === 0)
+    {
+      throw new Error('No Users Provided');
+    }
+  }
+
   toggleUsersHandler() {
     this.setState((curState) => {
       return { showUsers: !curState.showUsers };
